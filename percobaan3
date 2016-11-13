@@ -9,9 +9,9 @@ void set(int cycles, float duty)
   {
     dutyCycle = 6;
   }
-  if (cycles < 50)
+  if (cycles < 1015)
   {
-    cycles = 50;
+    cycles = 1015;
   }
   oldSREG = SREG;
   cli();
@@ -29,8 +29,8 @@ void setup() {
 }
 
 void loop() {
-  int temp_cycles = analogWrite(A0);
-  int temp_duty = analogWrite(A1);
+  int temp_cycles = analogRead(A0);
+  int temp_duty = analogRead(A1);
   if (temp_cycles != setCycles || temp_duty != setDuty)
   {
     setCycles = temp_cycles;
